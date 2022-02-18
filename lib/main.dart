@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      darkTheme: ThemeData.dark(),
       home: const Home(),
     );
   }
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
       ),
       drawer: const NavigationDrawer(),
       body: const Center(
-        child: const Text(''),
+        child: Text(''),
       ),
     );
   }

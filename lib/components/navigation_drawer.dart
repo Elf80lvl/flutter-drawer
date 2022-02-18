@@ -26,15 +26,15 @@ class NavigationDrawer extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.pop(context);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => UserScreen()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const UserScreen()));
           },
           child: Container(
             width: double.infinity,
             padding: EdgeInsets.only(
                 top: MediaQuery.of(context).padding.top + 24, bottom: 24),
             child: Column(
-              children: [
+              children: const [
                 CircleAvatar(
                   radius: 52,
                   backgroundImage: NetworkImage(
@@ -57,50 +57,52 @@ class NavigationDrawer extends StatelessWidget {
 
   buildMenuItems(context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-        child: Column(
-          children: [
-            ListTile(
-              leading: Icon(Icons.home_outlined),
-              title: Text('Home'),
-              onTap: () {
-                //*go to new page and close previous page
-                Navigator.of(context)
-                    .pushReplacement(MaterialPageRoute(builder: (context) {
-                  return Home();
-                }));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.favorite_outline),
-              title: Text('Favourites'),
-              onTap: () {
-                //Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => FavouritesScreen()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.work_outline),
-              title: Text('Workflow'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.update_outlined),
-              title: Text('Updates'),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.account_tree_outlined),
-              title: Text('Plugins'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.notifications_outlined),
-              title: Text('Home'),
-              onTap: () {},
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.home_outlined),
+                title: const Text('Home'),
+                onTap: () {
+                  //*go to new page and close previous page
+                  Navigator.of(context)
+                      .pushReplacement(MaterialPageRoute(builder: (context) {
+                    return const Home();
+                  }));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.favorite_outline),
+                title: const Text('Favourites'),
+                onTap: () {
+                  //Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const FavouritesScreen()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.work_outline),
+                title: const Text('Workflow'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.update_outlined),
+                title: const Text('Updates'),
+                onTap: () {},
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.account_tree_outlined),
+                title: const Text('Plugins'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.notifications_outlined),
+                title: const Text('Notifications'),
+                onTap: () {},
+              ),
+            ],
+          ),
         ),
       );
 }
